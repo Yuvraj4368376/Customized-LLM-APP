@@ -27,7 +27,7 @@ The RAG process involves:
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/sustainable-living-advisor.git
+   git clone https://github.com/Yuvraj4368376//sustainable-living-advisor.git
    cd sustainable-living-advisor
    ```
 
