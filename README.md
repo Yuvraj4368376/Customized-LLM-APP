@@ -1,42 +1,73 @@
-# Customized-LLM-APP
+Sure, here's a `README.md` file for your Retrieval-Augmented Generation (RAG) application using a language model chatbot.
 
-Building a Retrieval-Augmented Generation (RAG) bot can significantly enhance the capabilities of a language model by incorporating external knowledge to generate more accurate and contextually relevant responses. This guide will walk you through creating a simple RAG bot using Gradio and the Hugging Face APIs.
+---
 
-But how does RAG enhance LLM’s performance?
+# RAG LLM Chatbot
 
-RAG improves the performance of language models by augmenting them with external documents. This method retrieves relevant documents based on the user query and combines them with the original prompt before passing them to the language model for response generation. This approach ensures that the language model can access up-to-date and domain-specific information without the need for extensive retraining.
+This repository contains the code for a Retrieval-Augmented Generation (RAG) chatbot using a language model. The chatbot leverages external documents to provide more accurate and relevant responses.
 
+## Overview
 
+The application utilizes the following key components:
 
-A common scenario of RAG helping LLM (Source)
+- **Gradio**: A user-friendly interface for interacting with the chatbot.
+- **Huggingface_hub**: To load pre-trained models from Hugging Face.
+- **PyMuPDF**: To handle PDF documents.
+- **Sentence-Transformers**: For embedding sentences and documents.
+- **Numpy**: For numerical operations.
+- **Faiss-cpu**: For efficient similarity search.
 
-The basic steps in RAG can be simplified as follows:
+## Installation
 
-Input: The question to which the LLM system responds is referred to as the input. If no RAG is used, the LLM is directly used to respond to the question.
+1. Clone the repository:
 
-Indexing: If RAG is used, then a series of related documents are indexed by chunking them first, generating embeddings of the chunks, and indexing them into a vector store. At inference, the query is also embedded in a similar way.
+    ```bash
+    git clone https://github.com/yourusername/rag-llm-chatbot.git
+    cd rag-llm-chatbot
+    ```
 
+2. Create a virtual environment:
 
-Basic retrieval steps in RAG. (Source)
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-Retrieval: The relevant documents are obtained by comparing the query against the indexed vectors, also denoted as “Relevant Documents”.
+3. Install the required packages:
 
-Generation: The relevant documents are combined with the original prompt as additional context. The combined text and prompt are then passed to the model for response generation which is then prepared as the final output of the system to the user.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-In the example provided, using the model directly fails to respond to the question due to a lack of knowledge of current events. On the other hand, when using RAG, the system can pull the relevant information needed for the model to answer the question appropriately. (Source)
+## Usage
 
-Now Let’s Build a Chatbot using RAG:
+1. Open the `app.py` file and modify any necessary configurations.
 
-I have used Zephyr LLM model and all-MiniLM-L6-v2 sentence transformer model. This sentence-transformers model maps sentences & paragraphs to a 384 dimensional dense vector space and can be used for tasks like clustering or semantic search.
+2. Run the application:
 
-The all-* models were trained on all available training data (more than 1 billion training pairs) and are designed as general purpose models. The all-mpnet-base-v2 model provides the best quality, while all-MiniLM-L6-v2 is 5 times faster and still offers good quality. Toggle All models to see all evaluated original models.
+    ```bash
+    python app.py
+    ```
 
-We need the following ingredients:
+3. Open your web browser and navigate to the URL provided by Gradio to interact with the chatbot.
 
-1. A PDF as your knowledgebase
+## Code Overview
 
-2. A requirements.txt file
+- `app.py`: The main application file containing the logic for the chatbot.
+- `requirements.txt`: A list of Python packages required to run the application.
 
-3. An app.py file
+## Example
 
-4. An account on Hugging Face (See this blog to learn about building a LLM chatbot in Hugging Face)
+After starting the application, you will be prompted to upload documents and ask questions. The chatbot will use the uploaded documents to provide more informed answers.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Feel free to customize this `README.md` as needed for your specific project details.
